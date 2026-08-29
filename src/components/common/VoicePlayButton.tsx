@@ -117,17 +117,27 @@ export default function VoicePlayButton({
       )}
       {!hasRecording && (
         <span
+          aria-hidden="true"
           style={{
             position: "absolute",
-            bottom: -1,
-            right: -1,
-            width: 8,
-            height: 8,
-            borderRadius: "50%",
+            bottom: -3,
+            right: -3,
+            minWidth: 14,
+            height: 9,
+            padding: "0 3px",
+            borderRadius: 5,
             background: "var(--ink-900, #0b0c10)",
-            border: `1px dashed ${tone}88`,
+            border: `1px solid ${tone}66`,
+            color: tone,
+            fontSize: 6,
+            lineHeight: "7px",
+            fontFamily: "var(--font-display)",
+            letterSpacing: "0.04em",
+            textAlign: "center",
           }}
-        />
+        >
+          AI
+        </span>
       )}
     </motion.button>
   );

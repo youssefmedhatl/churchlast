@@ -1,9 +1,9 @@
 /**
  * Single shared "voice" for the whole app: plays a recorded clip (or a
  * sequence of clips back-to-back as one take), or falls back to on-device
- * Arabic/English text-to-speech when no recording exists yet. Only one
- * thing can speak at a time — starting a new line stops whatever was
- * playing before it, recorded or synthesized.
+ * text-to-speech when no recording exists yet. Only one thing can speak at a
+ * time. TTS is made resilient to browsers that populate their voice list late
+ * and to Chromium's long-utterance reliability issues.
  */
 
 type EndedReason = "ended" | "stopped" | "error";
@@ -14,15 +14,22 @@ let currentUtterance: SpeechSynthesisUtterance | null = null;
 let currentListener: Listener | null = null;
 let currentToken = 0;
 
-// Keep decoded/partially-buffered audio elements alive between turns. This
-// removes the network/decoder startup delay when a presenter taps a speaker.
+// Keep decoded/partially-buffered audio elements alive between turns.
 const audioCache = new Map<string, HTMLAudioElement>();
 
 export function preloadRecording(src: string) {
-  if (typeof window === "undefined" || audioCache.has(src)) return;
-  const audio = new Audio();
+  if (typeof window === "undefined") return;
+  const cached = audioCache.get(src);
+  if (cached && cached.readyState > 0) return;
+
+  const audio = cached ?? new Audio();
   audio.preload = "auto";
   audio.src = src;
+  audio.onerror = () => {
+    // Don't keep a broken element in the cache; the next playback attempt
+    // gets a clean Audio object and a fresh request.
+    if (audioCache.get(src) === audio) audioCache.delete(src);
+  };
   audio.load();
   audioCache.set(src, audio);
 }
@@ -37,51 +44,69 @@ function fireEnded(reason: EndedReason) {
   l?.(reason);
 }
 
-/** Stop whatever is currently playing/speaking (recording or TTS). */
+/** Stop whatever is currently playing/speaking. */
 export function stopVoice() {
-  currentToken += 1; // invalidate any in-flight sequence
+  currentToken += 1;
+
   if (currentAudio) {
     currentAudio.pause();
-    try { currentAudio.currentTime = 0; } catch { /* ignore */ }
+    try {
+      currentAudio.currentTime = 0;
+    } catch {
+      // Ignore browsers that reject currentTime changes during teardown.
+    }
     currentAudio = null;
   }
+
   if (currentUtterance) {
     window.speechSynthesis?.cancel();
     currentUtterance = null;
   }
+
   fireEnded("stopped");
 }
 
 /**
  * Play one or more audio files in sequence, as a single continuous take.
- * Calls onEnded("ended") when the whole sequence finishes, onEnded("stopped")
- * if interrupted by another play/stop call, or onEnded("error") if a clip
- * fails to load/play (e.g. file missing).
  */
 export function playRecording(srcs: string[], onEnded?: Listener) {
   stopVoice();
+  if (!srcs.length) {
+    fireEnded("error");
+    return;
+  }
+
   const token = ++currentToken;
   currentListener = onEnded ?? null;
 
   const playAt = (idx: number) => {
-    if (token !== currentToken) return; // superseded
+    if (token !== currentToken) return;
     if (idx >= srcs.length) {
       currentAudio = null;
       fireEnded("ended");
       return;
     }
+
     const src = srcs[idx];
-    const audio = audioCache.get(src) ?? new Audio(src);
+    const audio = audioCache.get(src) ?? new Audio();
     audio.preload = "auto";
+    audio.src = src;
     audio.currentTime = 0;
     audio.onended = () => playAt(idx + 1);
-    currentAudio = audio;
-    audioCache.set(src, audio);
     audio.onerror = () => {
       if (token !== currentToken) return;
+      if (audioCache.get(src) === audio) audioCache.delete(src);
       currentAudio = null;
       fireEnded("error");
     };
+
+    currentAudio = audio;
+    audioCache.set(src, audio);
+
+    // Calling load() here is harmless for an already-buffered element and
+    // makes a newly-created cache entry deterministic before play().
+    if (audio.readyState === 0) audio.load();
+
     audio.play().catch(() => {
       if (token !== currentToken) return;
       currentAudio = null;
@@ -92,44 +117,110 @@ export function playRecording(srcs: string[], onEnded?: Listener) {
   playAt(0);
 }
 
-/** Roughly estimate combined duration in ms before metadata loads, for pacing. */
-export function estimateReadingMs(text: string) {
-  return Math.min(9000, 1800 + text.length * 55);
+function waitForVoices(timeoutMs = 1000): Promise<SpeechSynthesisVoice[]> {
+  const synth = window.speechSynthesis;
+  const existing = synth.getVoices();
+  if (existing.length) return Promise.resolve(existing);
+
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      synth.removeEventListener("voiceschanged", finish);
+      resolve(synth.getVoices());
+    };
+    synth.addEventListener("voiceschanged", finish);
+    window.setTimeout(finish, timeoutMs);
+  });
 }
 
-const arabicPattern = /[\u0600-\u06FF]/;
+function chunkText(text: string, maxChars = 180): string[] {
+  const normalized = text.trim();
+  if (!normalized) return [];
+  if (normalized.length <= maxChars) return [normalized];
 
-/** Speak a line via the browser's built-in TTS, picking Arabic vs English voice. */
-export function speak(text: string, lang: "ar" | "en", onEnded?: Listener) {
+  const chunks: string[] = [];
+  let rest = normalized;
+  while (rest.length > maxChars) {
+    const windowText = rest.slice(0, maxChars);
+    const cut = Math.max(
+      windowText.lastIndexOf("."),
+      windowText.lastIndexOf("،"),
+      windowText.lastIndexOf(","),
+      windowText.lastIndexOf("؛"),
+      windowText.lastIndexOf(" "),
+    );
+    const splitAt = cut > maxChars * 0.55 ? cut + 1 : maxChars;
+    chunks.push(rest.slice(0, splitAt).trim());
+    rest = rest.slice(splitAt).trim();
+  }
+  if (rest) chunks.push(rest);
+  return chunks;
+}
+
+/**
+ * Speak text via the browser's built-in TTS. The voice list is loaded lazily
+ * and long Arabic passages are spoken in short chunks for reliable playback.
+ */
+export async function speak(text: string, lang: "ar" | "en", onEnded?: Listener) {
   stopVoice();
   if (!("speechSynthesis" in window)) {
     fireEnded("error");
     return;
   }
+
   const token = ++currentToken;
   currentListener = onEnded ?? null;
-
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = lang === "ar" || arabicPattern.test(text) ? "ar-EG" : "en-US";
-  utter.rate = 0.98;
-
-  const voices = window.speechSynthesis.getVoices();
-  const match = voices.find((v) => v.lang?.toLowerCase().startsWith(utter.lang.toLowerCase().slice(0, 2)));
-  if (match) utter.voice = match;
-
-  utter.onend = () => {
-    if (token !== currentToken) return;
-    currentUtterance = null;
+  const chunks = chunkText(text);
+  if (!chunks.length) {
     fireEnded("ended");
-  };
-  utter.onerror = () => {
+    return;
+  }
+
+  const voices = await waitForVoices();
+  if (token !== currentToken) return;
+
+  const targetLang = lang === "ar" || arabicPattern.test(text) ? "ar-EG" : "en-US";
+  const match = voices.find((v) => {
+    const voiceLang = v.lang?.toLowerCase() ?? "";
+    return voiceLang === targetLang.toLowerCase() || voiceLang.startsWith(targetLang.slice(0, 2));
+  });
+
+  let idx = 0;
+  const speakNext = () => {
     if (token !== currentToken) return;
-    currentUtterance = null;
-    fireEnded("error");
+    if (idx >= chunks.length) {
+      currentUtterance = null;
+      fireEnded("ended");
+      return;
+    }
+
+    const utter = new SpeechSynthesisUtterance(chunks[idx++]);
+    utter.lang = targetLang;
+    utter.rate = 0.98;
+    if (match) utter.voice = match;
+    utter.onend = speakNext;
+    utter.onerror = () => {
+      if (token !== currentToken) return;
+      currentUtterance = null;
+      fireEnded("error");
+    };
+
+    currentUtterance = utter;
+    // Some Chromium configurations can leave speechSynthesis paused after a
+    // prior utterance; resume() before speak() is safe when unsupported.
+    window.speechSynthesis.resume?.();
+    window.speechSynthesis.speak(utter);
   };
 
-  currentUtterance = utter;
-  window.speechSynthesis.speak(utter);
+  speakNext();
+}
+
+const arabicPattern = /[\u0600-\u06FF]/;
+
+export function estimateReadingMs(text: string) {
+  return Math.min(9000, 1800 + text.length * 55);
 }
 
 export function isVoiceAvailable() {
