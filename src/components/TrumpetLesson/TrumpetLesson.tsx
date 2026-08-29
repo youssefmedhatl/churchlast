@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTrumpet } from "../../data/trumpets";
 import { useJourneyStore } from "../../store/journeyStore";
@@ -31,6 +31,19 @@ export default function TrumpetLesson({ index }: TrumpetLessonProps) {
   const [justAwarded, setJustAwarded] = useState(0);
 
   const isFinale = index === 7;
+
+  useEffect(() => {
+    if (!trumpet.videoSrc || typeof window === "undefined") return;
+    const video = document.createElement("video");
+    video.preload = "auto";
+    video.muted = true;
+    video.playsInline = true;
+    video.src = trumpet.videoSrc;
+    video.load();
+    return () => {
+      video.src = "";
+    };
+  }, [trumpet.videoSrc]);
 
   const advance = (next: Stage) => setStage(next);
 

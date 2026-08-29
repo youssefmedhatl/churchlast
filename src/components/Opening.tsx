@@ -70,6 +70,7 @@ export default function Opening({ onBegin }: OpeningProps) {
             muted
             playsInline
             preload="auto"
+            poster="/video-posters/opening.jpg"
             onError={() => setVideoFailed(true)}
             onEnded={() => setVideoEnded(true)}
             style={{

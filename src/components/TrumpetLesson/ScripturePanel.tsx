@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import type { TrumpetData } from "../../data/trumpets/types";
 import { useLang } from "../../i18n/LanguageContext";
+import VoicePlayButton from "../common/VoicePlayButton";
+import { accent } from "../common/CharacterPortrait";
 
 interface ScripturePanelProps {
   trumpet: TrumpetData;
@@ -41,15 +43,27 @@ export default function ScripturePanel({ trumpet }: ScripturePanelProps) {
         >
           {t("scripture")}
         </span>
-        <span
+        <div
           style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
             fontFamily: "var(--font-display)",
             fontSize: 12,
             opacity: 0.75,
           }}
         >
-          {trumpet.scriptureRef[lang]}
-        </span>
+          <span>{trumpet.scriptureRef[lang]}</span>
+          {trumpet.scriptureAudioSrc?.length ? (
+            <VoicePlayButton
+              text={trumpet.scriptureText[lang]}
+              lang={lang}
+              audioSrc={trumpet.scriptureAudioSrc}
+              tone={accent.angel.label}
+              size={28}
+            />
+          ) : null}
+        </div>
       </div>
 
       <p

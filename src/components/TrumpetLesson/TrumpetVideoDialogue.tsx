@@ -4,7 +4,7 @@ import type { TrumpetData, DialogueLine } from "../../data/trumpets/types";
 import { useLang } from "../../i18n/LanguageContext";
 import CinematicStage from "./CinematicStage";
 import DialogueTurn, { readingTimeMs } from "../common/DialogueTurn";
-import { stopVoice } from "../../lib/voiceover";
+import { preloadRecordings, stopVoice } from "../../lib/voiceover";
 
 interface TrumpetVideoDialogueProps {
   trumpet: TrumpetData;
@@ -34,6 +34,14 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
   // Off by default: nothing should start talking on its own — the presenter
   // taps a line's speaker icon (or the AUTO toggle) to hear it.
   const [autoPlay, setAutoPlay] = useState(false);
+
+  useEffect(() => {
+    preloadRecordings(
+      [trumpet.introDialogue ?? [], trumpet.closingDialogue ?? []]
+        .flat()
+        .flatMap((line) => line.audioSrc ?? [])
+    );
+  }, [trumpet]);
 
   const beats: Beat[] = [
     ...(trumpet.introDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),

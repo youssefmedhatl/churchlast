@@ -114,6 +114,7 @@ const trumpet2: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part01.m4a"],
       text: {
         ar: "اعتقد لو حاجة عظيمة في الحجم علي الارض مش هيكون في انسب من الجبال, صح؟",
         en: "I think if something is great in size on the earth, nothing would fit better than a mountain, right?",
@@ -147,7 +148,7 @@ const trumpet2: TrumpetScript = {
 // ---------------------------------------------------------------------
 const trumpet3: TrumpetScript = {
   intro: [
-    { speaker: "girl", text: { ar: "في حد هنا ؟", en: "Is anyone here?" } },
+    { speaker: "girl", audioSrc: ["/audio/doors/girl-part02.m4a"], text: { ar: "في حد هنا ؟", en: "Is anyone here?" } },
     {
       // door3-angel-part1.m4a
       speaker: "angel",
@@ -160,6 +161,7 @@ const trumpet3: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part03.m4a"],
       text: {
         ar: "انا حد عدي من البرد والنار والجبل المتقد",
         en: "I'm someone who made it past the hail, the fire, and the burning mountain.",
@@ -177,6 +179,7 @@ const trumpet3: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part04.m4a"],
       text: { ar: "مش الافسنتين ده نبات مر ؟", en: "Isn't Wormwood a bitter plant?" },
     },
     {
@@ -206,7 +209,7 @@ const trumpet3: TrumpetScript = {
           "Is there anything else you need to know?",
       },
     },
-    { speaker: "girl", text: { ar: "لا تمام كدة, شكرا", en: "No, that's clear. Thank you." } },
+    { speaker: "girl", audioSrc: ["/audio/doors/girl-part05.m4a"], text: { ar: "لا تمام كدة, شكرا", en: "No, that's clear. Thank you." } },
     {
       // door3-angel-part5.m4a
       speaker: "angel",
@@ -237,6 +240,7 @@ const trumpet4: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part06.m4a"],
       text: {
         ar: "ليه ؟ هو بوقك هيعمل ايه في السماء ؟",
         en: "Why? What will your trumpet do to the sky?",
@@ -267,6 +271,7 @@ const trumpet4: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part07.m4a"],
       text: { ar: "طب ما كدة ده تعذيب للبشر", en: "But isn't that torture for humanity?" },
     },
     {
@@ -302,6 +307,7 @@ const trumpet5: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part08.m4a"],
       text: {
         ar: "اللي اعرفه انه تقريبا في البوق ده بئر الجحيم هتفتح وهيكون في جراد بقوة الاسود ولدعته زي لدعة العقرب واستعداده هيكون زي استعداد احصنة للحرب",
         en: "What I know is that in this trumpet, the pit of the abyss opens, and there will be locusts with the strength of lions, whose sting is like a scorpion's, and they'll be equipped like horses prepared for war.",
@@ -311,6 +317,7 @@ const trumpet5: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
       cue: "watch",
+      audioSrc: ["/audio/doors/door5-angel-part2.m4a"],
       text: {
         ar: "دنتي مذاكرة كويس بقا , لازم نقرأ كويس الاول",
         en: "You really have studied well then — but first, we have to read it properly.",
@@ -323,6 +330,7 @@ const trumpet5: TrumpetScript = {
       // (previously split into seven short turns).
       speaker: "angel",
       speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
+      audioSrc: ["/audio/doors/door5-angel-part3.m4a"],
       cue: "watch",
       text: {
         ar:
@@ -358,6 +366,7 @@ const trumpet6: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part10.m4a"],
       text: {
         ar: "ايه ده انتوا مين ومربوطين كدة ليه ؟",
         en: "What is this? Who are you, and why are you bound like this?",
@@ -366,6 +375,7 @@ const trumpet6: TrumpetScript = {
     {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
+      audioSrc: ["/audio/doors/door6-angel-part1.m4a"],
       text: {
         ar: "ازاي عديتي من كل اللي فات ده ومش عارفة مين دول , علي عموم انا مستني صوت واحد وهفكهم وساعتها هتعرفي هيعملوا ايه",
         en: "How did you get through everything so far and not know who these are? Anyway, I'm waiting for one sound, and then I'll release them — you'll find out then what they'll do.",
@@ -373,6 +383,7 @@ const trumpet6: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part11.m4a"],
       text: {
         ar: "اهه اعتقد فهمت , دول الاربع ملائكة المجهزين لقتل تلت الناس , صح ؟ وعلي حسب علمي مش هيكونوا لوحديهم ,هيكون في جيوش فرسان تجهيزها مرعب وعددها مهوول",
         en: "Ah, I think I understand — these are the four angels prepared to kill a third of mankind, right? And as far as I know, they won't be alone — there will be an army of horsemen, terrifyingly equipped and vast in number.",
@@ -382,6 +393,7 @@ const trumpet6: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
       cue: "watch",
+      audioSrc: ["/audio/doors/door6-angel-part2.m4a", "/audio/doors/door6-angel-part3.m4a"],
       text: {
         ar:
           "انا كنت لسة هصدق انك مش عارفة فعلا , بس طلعتي ذكية زي ما سمعت , الصوت اللي انا مستنيه عشان اضرب البوق هو صوت اربعة قرون مذبح الذهب " +
@@ -445,6 +457,7 @@ const trumpet7: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
       cue: "watch",
+      audioSrc: ["/audio/doors/door7-angel-part1.m4a"],
       text: {
         ar:
           "ست ابواق وعلامتها مرعبة , بس الانسان ده غريب جدا , بعد كل اللي حصل حواليه وكل اللي شافه,متعظش و كمل حياته كأن مفيش حاجة حصلت , " +
@@ -457,8 +470,17 @@ const trumpet7: TrumpetScript = {
   ],
   closing: [
     {
+      speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part09.m4a"],
+      text: {
+        ar: "وهو كدة التلتين الباقيين من الناس اتعظوا من الهلاك العظيم اللي حصل ده ورجعوا عن اللي بيعملوه, مش كدة ؟",
+        en: "So then, did the remaining two-thirds of people learn from this great destruction and turn away from what they were doing — didn't they?",
+      },
+    },
+    {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
+      audioSrc: ["/audio/doors/door7-angel-part2-short.m4a"],
       text: {
         ar: "ده اعلان النصرة علي مملكة الشيطان واعلان ملك الله ولما اتقالت الايه دي الاربعة وعشرين قسيس الجالسين امام الله علي وشوشهم وسجدا وقالوا",
         en: "This is the announcement of victory over the kingdom of the devil, and the announcement of God's reign. And when this verse was spoken, the twenty-four elders seated before God fell on their faces and worshiped, saying —",
@@ -468,6 +490,7 @@ const trumpet7: TrumpetScript = {
       // Merged: combines the thanksgiving-hymn and ark-of-the-covenant turns into one continuous beat.
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
+      audioSrc: ["/audio/doors/door7-angel-part3.m4a"],
       text: {
         ar:
           "قدموا التسبحة الجميلة دي لله شكرآ علي اللي عمله في القصاص من مملكة الشر واثبت انها غير صحيحة ونشر مٌلكه , ورجوع العالم للإيمان واعلان قدرته اللانهائية في صنع وتدبير العالم , " +
@@ -481,6 +504,7 @@ const trumpet7: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
       cue: "watch",
+      audioSrc: ["/audio/doors/door7-angel-part4.m4a"],
       text: {
         ar: "دي مظاهر مرتبطه بعظمة و جلال الله و هيبته و بتعلن ان حدثا عظيما بيتم امام حضرته",
         en: "these are signs tied to the greatness, majesty, and awe of God, declaring that a great event is taking place before His presence.",

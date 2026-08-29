@@ -14,6 +14,23 @@ let currentUtterance: SpeechSynthesisUtterance | null = null;
 let currentListener: Listener | null = null;
 let currentToken = 0;
 
+// Keep decoded/partially-buffered audio elements alive between turns. This
+// removes the network/decoder startup delay when a presenter taps a speaker.
+const audioCache = new Map<string, HTMLAudioElement>();
+
+export function preloadRecording(src: string) {
+  if (typeof window === "undefined" || audioCache.has(src)) return;
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.src = src;
+  audio.load();
+  audioCache.set(src, audio);
+}
+
+export function preloadRecordings(srcs: string[]) {
+  for (const src of srcs) preloadRecording(src);
+}
+
 function fireEnded(reason: EndedReason) {
   const l = currentListener;
   currentListener = null;
@@ -25,7 +42,7 @@ export function stopVoice() {
   currentToken += 1; // invalidate any in-flight sequence
   if (currentAudio) {
     currentAudio.pause();
-    currentAudio.src = "";
+    try { currentAudio.currentTime = 0; } catch { /* ignore */ }
     currentAudio = null;
   }
   if (currentUtterance) {
@@ -53,9 +70,13 @@ export function playRecording(srcs: string[], onEnded?: Listener) {
       fireEnded("ended");
       return;
     }
-    const audio = new Audio(srcs[idx]);
-    currentAudio = audio;
+    const src = srcs[idx];
+    const audio = audioCache.get(src) ?? new Audio(src);
+    audio.preload = "auto";
+    audio.currentTime = 0;
     audio.onended = () => playAt(idx + 1);
+    currentAudio = audio;
+    audioCache.set(src, audio);
     audio.onerror = () => {
       if (token !== currentToken) return;
       currentAudio = null;

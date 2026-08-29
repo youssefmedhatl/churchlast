@@ -25,7 +25,8 @@ const trumpet7: TrumpetData = {
   title: { en: "The Seventh Trumpet", ar: "البوق السابع" },
   shortLabel: { en: "The Kingdom Proclaimed", ar: "إعلان الملكوت" },
   scriptureRef: { en: "Revelation 11:15-19", ar: "رؤيا ١١: ١٥-١٩" },
-  scriptureIsTemporary: true,
+  scriptureIsTemporary: false,
+  scriptureAudioSrc: ["/audio/doors/door7-scripture.m4a"],
   scriptureText: {
     en:
       "[TEMPORARY PLACEHOLDER — pending verified Coptic Reader text] " +

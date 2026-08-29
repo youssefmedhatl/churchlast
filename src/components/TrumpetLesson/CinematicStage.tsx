@@ -176,6 +176,7 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
             loop
             playsInline
             preload="auto"
+            poster={`/video-posters/${trumpet.videoSrc?.split("/").pop()?.replace(".mp4", ".jpg") ?? ""}`}
             onError={() => setVideoFailed(true)}
             style={{
               position: "absolute",

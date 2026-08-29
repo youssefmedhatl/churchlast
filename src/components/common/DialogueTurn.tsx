@@ -5,7 +5,7 @@ import { defaultSide, speakerName } from "../../data/script";
 import { useLang } from "../../i18n/LanguageContext";
 import CharacterPortrait, { accent } from "./CharacterPortrait";
 import VoicePlayButton from "./VoicePlayButton";
-import { playRecording, stopVoice } from "../../lib/voiceover";
+import { playRecording, preloadRecordings, stopVoice } from "../../lib/voiceover";
 
 /** Girl left, Angel right, Holy Father left — unless the line overrides it. */
 export const sideFor = (line: DialogueLine): "left" | "right" =>
@@ -71,6 +71,10 @@ export default function DialogueTurn({
   // While the voiceover reads this line aloud, show the full text instead of
   // typing it out — the recording sets the pace, not the typewriter.
   const shown = voicePlaying ? text : typed;
+
+  useEffect(() => {
+    preloadRecordings(line.audioSrc ?? []);
+  }, [line.audioSrc]);
 
   // Auto-start the recorded clip in sync with the line appearing, and let
   // the parent know when to move on — only when a recording actually exists.

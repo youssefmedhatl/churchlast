@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { DialogueLine } from "../../data/trumpets/types";
 import { useLang } from "../../i18n/LanguageContext";
 import DialogueTurn, { readingTimeMs } from "./DialogueTurn";
-import { stopVoice } from "../../lib/voiceover";
+import { preloadRecordings, stopVoice } from "../../lib/voiceover";
 
 interface DialogueSequenceProps {
   lines: DialogueLine[];
@@ -29,6 +29,12 @@ export default function DialogueSequence({ lines, onDone }: DialogueSequenceProp
   const isLast = i === lines.length - 1;
   const line = lines[i] as DialogueLine | undefined;
   const hasRecording = !!line?.audioSrc?.length;
+
+  // Warm the current and next recordings while the presenter is reading.
+  useEffect(() => {
+    const lookahead = lines.slice(i, i + 3).flatMap((entry) => entry.audioSrc ?? []);
+    preloadRecordings(lookahead);
+  }, [i, lines]);
 
   // Stop whatever is playing the instant we move on, so a skipped clip never
   // bleeds into the next line or the next section.
