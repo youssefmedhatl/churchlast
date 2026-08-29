@@ -366,9 +366,9 @@ const trumpet6: TrumpetScript = {
     },
     {
       speaker: "girl",
-      audioSrc: ["/audio/doors/girl-part10.m4a"],
+      audioSrc: ["/audio/doors/girl-part09.m4a"],
       text: {
-        ar: "ايه ده انتوا مين ومربوطين كدة ليه ؟",
+        ar: "ايه ده انتوا مين ومربوطين كدة ليه ?",
         en: "What is this? Who are you, and why are you bound like this?",
       },
     },
@@ -383,7 +383,7 @@ const trumpet6: TrumpetScript = {
     },
     {
       speaker: "girl",
-      audioSrc: ["/audio/doors/girl-part11.m4a"],
+      audioSrc: ["/audio/doors/girl-part10.m4a"],
       text: {
         ar: "اهه اعتقد فهمت , دول الاربع ملائكة المجهزين لقتل تلت الناس , صح ؟ وعلي حسب علمي مش هيكونوا لوحديهم ,هيكون في جيوش فرسان تجهيزها مرعب وعددها مهوول",
         en: "Ah, I think I understand — these are the four angels prepared to kill a third of mankind, right? And as far as I know, they won't be alone — there will be an army of horsemen, terrifyingly equipped and vast in number.",
@@ -425,6 +425,7 @@ const trumpet6: TrumpetScript = {
     },
     {
       speaker: "girl",
+      audioSrc: ["/audio/doors/girl-part11.m4a"],
       text: {
         ar: "وهو كدة التلتين الباقيين من الناس اتعظوا من الهلاك العظيم اللي حصل ده ورجعوا عن اللي بيعملوه, مش كدة ؟",
         en: "So then, did the remaining two-thirds of people learn from this great destruction and turn away from what they were doing — didn't they?",
@@ -470,17 +471,9 @@ const trumpet7: TrumpetScript = {
   ],
   closing: [
     {
-      speaker: "girl",
-      audioSrc: ["/audio/doors/girl-part09.m4a"],
-      text: {
-        ar: "وهو كدة التلتين الباقيين من الناس اتعظوا من الهلاك العظيم اللي حصل ده ورجعوا عن اللي بيعملوه, مش كدة ؟",
-        en: "So then, did the remaining two-thirds of people learn from this great destruction and turn away from what they were doing — didn't they?",
-      },
-    },
-    {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
-      audioSrc: ["/audio/doors/door7-angel-part2-short.m4a"],
+      audioSrc: ["/audio/doors/door7-angel-part2.m4a"],
       text: {
         ar: "ده اعلان النصرة علي مملكة الشيطان واعلان ملك الله ولما اتقالت الايه دي الاربعة وعشرين قسيس الجالسين امام الله علي وشوشهم وسجدا وقالوا",
         en: "This is the announcement of victory over the kingdom of the devil, and the announcement of God's reign. And when this verse was spoken, the twenty-four elders seated before God fell on their faces and worshiped, saying —",
