@@ -334,19 +334,9 @@ const trumpet5: TrumpetScript = {
       cue: "watch",
       text: {
         ar:
-          "في بعض التفاسير سقوط الكوكب ده اشارة لانتكاسة هتحصل لشخصية دينية مركزها كبير , و ده اللي هيفتح بئر الجحيم وهيملى العالم بدخان الشياطين اللي هي افكارهم , " +
-          "وهيخرج الجراد المخرب وعشان تفهمي خطورة الجراد انه اتشبه الاحصنة المجهزة للحرب وهيكون بوجه بشر , والاكاليل هتبقى اشارة للسلطان اللي هيكون عند الجراد ده , " +
-          "هتكون شكلها جميل وعندها شعر زي شعر النساء , لكن عندها اسنان شبه اسنان الاسود فحدتها , ودروعها وصوت اجنحتها المفزع اشارة لشده عنف وانتشار الجراد " +
-          "وهتعذب البشر لمدة خمس شهور وملكها اسمه أبدون او ابولين اللي معناه المخرب او المهلك , ورغم كل اللي اتقال عن البوق ده ,بنشوف برضه حنان ورحمة ربنا , " +
-          "فهو مسمحش بهلاك الخليقة كلها ,وده ظهر بردو فحنانه علي الضعفاة , بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكتر " +
-          "مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي , سلام",
+          "بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكثر مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي . سلام",
         en:
-          "In some interpretations, this star's fall is a sign of a downfall that will happen to a major religious figure, and it's what opens the pit of the abyss and fills the world with the smoke of demons, which are their ideas, " +
-          "and out come the destroying locusts. So you understand the danger of the locusts — they're shaped like horses prepared for war, and they'll have the face of a man; the crowns are a sign of the power these locusts hold, " +
-          "their shape will be beautiful, and they'll have hair like the hair of women, but their teeth will be as sharp as lions' teeth, and their armor and the terrifying sound of their wings are a sign of the ferocity and spread of the locusts, " +
-          "and they will torment people for five months, and their king's name is Abaddon, or Apollyon, meaning the Destroyer, and despite everything said about this trumpet, we still see God's tenderness and mercy, " +
-          "for He does not allow the whole of creation to be destroyed — and this also shows in His tenderness toward the weak: He protects those still at the beginning of their faith, and cares for the weaker souls who need His tenderness and mercy more, " +
-          "whatever you've seen in this trumpet won't compare to what's coming next. Peace.",
+          "He protects those at the beginning of the faith and cares for the weak souls who need His tenderness and mercy more. Whatever you've seen in this trumpet won't compare to what's coming next. Peace.",
       },
     },
   ],
