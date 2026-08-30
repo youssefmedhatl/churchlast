@@ -324,75 +324,29 @@ const trumpet5: TrumpetScript = {
       },
     },
   ],
-  // The transfer contains one short third angel recording (~9.7s). It is
-  // NOT the whole long closing monologue. It matches the final farewell
-  // sentence, so only that final line is tied to the recording; the other
-  // lines intentionally use the app's Arabic TTS fallback.
   closing: [
     {
+      // Merged: the entire closing monologue is now one continuous beat
+      // (previously split into seven short turns).
       speaker: "angel",
       speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "في بعض التفاسير سقوط الكوكب ده اشارة لانتكاسة هتحصل لشخصية دينية مركزها كبير ,",
-        en: "In some interpretations, this star's fall is a sign of a downfall that will happen to a major religious figure,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "و ده اللي هيفتح بئر الجحيم وهيملى العالم بدخان الشياطين اللي هي افكارهم , وهيخرج الجراد المخرب وعشان تفهمي خطورة الجراد انه اتشبه الاحصنة المجهزة للحرب وهيكون بوجه بشر ,",
-        en: "and it's what opens the pit of the abyss and fills the world with the smoke of demons, which are their ideas, and out come the destroying locusts. So you understand the danger of the locusts — they're shaped like horses prepared for war, and they'll have the face of a man,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "والاكاليل هتبقى اشارة للسلطان اللي هيكون عند الجراد ده , هتكون شكلها جميل وعندها شعر زي شعر النساء ,",
-        en: "the crowns are a sign of the power these locusts hold; their shape will be beautiful, and they'll have hair like the hair of women,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "لكن عندها اسنان شبه اسنان الاسود فحدتها , ودروعها وصوت اجنحتها المفزع اشارة لشده عنف وانتشار الجراد",
-        en: "but their teeth will be as sharp as lions' teeth, and their armor and the terrifying sound of their wings are a sign of the ferocity and spread of the locusts,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "وهتعذب البشر لمدة خمس شهور وملكها اسمه أبدون او ابولين اللي معناه المخرب او المهلك ,",
-        en: "and they will torment people for five months, and their king's name is Abaddon, or Apollyon, meaning the Destroyer,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "ورغم كل اللي اتقال عن البوق ده ,بنشوف برضه حنان ورحمة ربنا ,فهو مسمحش بهلاك الخليقة كلها ,",
-        en: "and despite everything said about this trumpet, we still see God's tenderness and mercy — He does not allow the whole of creation to be destroyed,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      text: {
-        ar: "وده ظهر بردو فحنانه علي الضعفاة ,بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكتر",
-        en: "and this also shows in His tenderness toward the weak — He protects those still at the beginning of their faith, and cares for the weaker souls who need His tenderness and mercy more,",
-      },
-    },
-    {
-      speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      cue: "watch",
       audioSrc: ["/audio/doors/door5-angel-part3.m4a"],
+      cue: "watch",
       text: {
-        ar: "مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي , سلام",
-        en: "whatever you've seen in this trumpet won't compare to what's coming next. Peace.",
+        ar:
+          "في بعض التفاسير سقوط الكوكب ده اشارة لانتكاسة هتحصل لشخصية دينية مركزها كبير , و ده اللي هيفتح بئر الجحيم وهيملى العالم بدخان الشياطين اللي هي افكارهم , " +
+          "وهيخرج الجراد المخرب وعشان تفهمي خطورة الجراد انه اتشبه الاحصنة المجهزة للحرب وهيكون بوجه بشر , والاكاليل هتبقى اشارة للسلطان اللي هيكون عند الجراد ده , " +
+          "هتكون شكلها جميل وعندها شعر زي شعر النساء , لكن عندها اسنان شبه اسنان الاسود فحدتها , ودروعها وصوت اجنحتها المفزع اشارة لشده عنف وانتشار الجراد " +
+          "وهتعذب البشر لمدة خمس شهور وملكها اسمه أبدون او ابولين اللي معناه المخرب او المهلك , ورغم كل اللي اتقال عن البوق ده ,بنشوف برضه حنان ورحمة ربنا , " +
+          "فهو مسمحش بهلاك الخليقة كلها ,وده ظهر بردو فحنانه علي الضعفاة , بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكتر " +
+          "مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي , سلام",
+        en:
+          "In some interpretations, this star's fall is a sign of a downfall that will happen to a major religious figure, and it's what opens the pit of the abyss and fills the world with the smoke of demons, which are their ideas, " +
+          "and out come the destroying locusts. So you understand the danger of the locusts — they're shaped like horses prepared for war, and they'll have the face of a man; the crowns are a sign of the power these locusts hold, " +
+          "their shape will be beautiful, and they'll have hair like the hair of women, but their teeth will be as sharp as lions' teeth, and their armor and the terrifying sound of their wings are a sign of the ferocity and spread of the locusts, " +
+          "and they will torment people for five months, and their king's name is Abaddon, or Apollyon, meaning the Destroyer, and despite everything said about this trumpet, we still see God's tenderness and mercy, " +
+          "for He does not allow the whole of creation to be destroyed — and this also shows in His tenderness toward the weak: He protects those still at the beginning of their faith, and cares for the weaker souls who need His tenderness and mercy more, " +
+          "whatever you've seen in this trumpet won't compare to what's coming next. Peace.",
       },
     },
   ],
@@ -405,8 +359,6 @@ const trumpet6: TrumpetScript = {
   intro: [
     {
       speaker: "narrator",
-      // No narrator recording exists in the supplied archive for this line;
-      // it intentionally uses the Arabic TTS fallback.
       text: {
         ar: "يلاقي الملائكة المقيدين يدخل الباب",
         en: "As she enters the door, she finds bound angels.",
@@ -416,7 +368,7 @@ const trumpet6: TrumpetScript = {
       speaker: "girl",
       audioSrc: ["/audio/doors/girl-part09.m4a"],
       text: {
-        ar: "ايه ده انتوا مين ومربوطين كدة ليه ؟",
+        ar: "ايه ده انتوا مين ومربوطين كدة ليه ?",
         en: "What is this? Who are you, and why are you bound like this?",
       },
     },
@@ -441,9 +393,7 @@ const trumpet6: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
       cue: "watch",
-      // Parts 2 + 3 are one continuous take from the transfer. Keep them
-      // together so the whole spoken turn plays without an artificial break.
-      audioSrc: ["/audio/doors/door6-angel-part2.m4a", "/audio/doors/door6-angel-part3.m4a"],
+      audioSrc: ["/audio/doors/door6-angel-part3.m4a"],
       text: {
         ar:
           "انا كنت لسة هصدق انك مش عارفة فعلا , بس طلعتي ذكية زي ما سمعت , الصوت اللي انا مستنيه عشان اضرب البوق هو صوت اربعة قرون مذبح الذهب " +
@@ -456,8 +406,11 @@ const trumpet6: TrumpetScript = {
   ],
   closing: [
     {
+      // Merged: the armor/heads/fire/tails description is now one continuous beat
+      // (previously split into five short turns).
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
+      audioSrc: ["/audio/doors/door6-angel-part2.m4a"],
       text: {
         ar:
           "جلوس الفرسان علي الخيول علامة استعداد تام للحرب , ودروع نارية اشارة بأنها حرب حارقة بلا رحمة واسمانجونية دي شكل الدروع اللي هتبقى قريبة لشكل دروع سماوية " +
@@ -480,6 +433,7 @@ const trumpet6: TrumpetScript = {
       },
     },
     {
+      // Merged: combines the closing three turns into one continuous beat.
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
       cue: "watch",
@@ -501,6 +455,7 @@ const trumpet6: TrumpetScript = {
 const trumpet7: TrumpetScript = {
   intro: [
     {
+      // Merged: combines the two intro turns into one continuous beat.
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
       cue: "watch",
@@ -526,14 +481,14 @@ const trumpet7: TrumpetScript = {
       },
     },
     {
-      // This text is paragraph 41 of the approved script. It is intentionally
-      // kept as one turn because it is the matching third angel recording.
+      // Merged: combines the thanksgiving-hymn and ark-of-the-covenant turns into one continuous beat.
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
       audioSrc: ["/audio/doors/door7-angel-part3.m4a"],
       text: {
         ar:
-          "قدموا التسبحة الجميلة دي لله شكرآ علي اللي عمله في القصاص من مملكة الشر واثبت انها غير صحيحة ونشر مٌلكه , ورجوع العالم للإيمان واعلان قدرته اللانهائية في صنع وتدبير العالم , ولان مش كل النهايات سعيدة , البوق بينتهي بظهور تابوت العهد وظهور علامات تأديبية",
+          "قدموا التسبحة الجميلة دي لله شكرآ علي اللي عمله في القصاص من مملكة الشر واثبت انها غير صحيحة ونشر مٌلكه , ورجوع العالم للإيمان واعلان قدرته اللانهائية في صنع وتدبير العالم , " +
+          "ولان مش كل النهايات سعيدة , البوق بينتهي بظهور تابوت العهد وظهور علامات تأديبية",
         en:
           "They offered this beautiful hymn to God, thanking Him for what He did in bringing justice on the kingdom of evil and proving it false, and for spreading His reign, for the world turning to faith, and for the declaration of His infinite power in creating and governing the world, " +
           "and because not every ending is a happy one, the trumpet closes with the appearing of the Ark of the Covenant and the appearing of signs of discipline —",

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { playRecording, speak, stopVoice } from "../../lib/voiceover";
+import { playRecording, stopVoice } from "../../lib/voiceover";
 
 interface VoicePlayButtonProps {
   text: string;
@@ -59,7 +59,8 @@ export default function VoicePlayButton({
     if (hasRecording) {
       playRecording(audioSrc!, onEnded);
     } else {
-      speak(text, lang, onEnded);
+      // No synthesized/AI voice: this presentation build uses recorded human voices only.
+      setState(false);
     }
   };
 
@@ -68,7 +69,8 @@ export default function VoicePlayButton({
       onClick={handleClick}
       whileTap={{ scale: 0.9 }}
       aria-label={playing ? "Stop voiceover" : "Play voiceover"}
-      title={hasRecording ? undefined : "No recording yet — read aloud with device speech"}
+      title={hasRecording ? "Play recorded voice" : "No recorded voice available"}
+      disabled={!hasRecording}
       style={{
         flexShrink: 0,
         width: size,
@@ -82,7 +84,8 @@ export default function VoicePlayButton({
           ? `linear-gradient(180deg, ${tone}33, ${tone}1a)`
           : "rgba(255,255,255,0.04)",
         color: tone,
-        cursor: "pointer",
+        cursor: hasRecording ? "pointer" : "default",
+        opacity: hasRecording ? 1 : 0.45,
         position: "relative",
       }}
     >
@@ -117,27 +120,17 @@ export default function VoicePlayButton({
       )}
       {!hasRecording && (
         <span
-          aria-hidden="true"
           style={{
             position: "absolute",
-            bottom: -3,
-            right: -3,
-            minWidth: 14,
-            height: 9,
-            padding: "0 3px",
-            borderRadius: 5,
+            bottom: -1,
+            right: -1,
+            width: 8,
+            height: 8,
+            borderRadius: "50%",
             background: "var(--ink-900, #0b0c10)",
-            border: `1px solid ${tone}66`,
-            color: tone,
-            fontSize: 6,
-            lineHeight: "7px",
-            fontFamily: "var(--font-display)",
-            letterSpacing: "0.04em",
-            textAlign: "center",
+            border: `1px dashed ${tone}88`,
           }}
-        >
-          AI
-        </span>
+        />
       )}
     </motion.button>
   );
