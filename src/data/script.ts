@@ -420,6 +420,7 @@ const trumpet6: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
       cue: "watch",
+      audioSrc: ["/audio/doors/door6-angel-part4.wav"],
       text: {
         ar:
           "فالحقيقة لا , مبطلوش اي حاجة من اللي كانوا بيعملوها سواء كانت عباد اصنام و ولا عن الزنى ولا السحر ولا اي حاجة من اللي بيعملوها, " +
