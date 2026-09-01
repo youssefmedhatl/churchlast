@@ -29,7 +29,7 @@ type Beat = { kind: "dialogue"; line: DialogueLine } | { kind: "narration" };
  * narration (the vision) → closing dialogue → Scripture.
  */
 export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDialogueProps) {
-  const { lang, t } = useLang();
+  const { lang, t, dir } = useLang();
   const [i, setI] = useState(0);
   // Off by default: nothing should start talking on its own — the presenter
   // taps a line's speaker icon (or the AUTO toggle) to hear it.
@@ -61,6 +61,12 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
     stopVoice();
     if (isLast) onDone();
     else setI((n) => n + 1);
+  };
+
+  const goPrevious = () => {
+    if (i <= 0) return;
+    stopVoice();
+    setI((n) => Math.max(0, n - 1));
   };
 
   // Belt-and-braces: if this whole beat sequence unmounts (e.g. the trumpet
@@ -197,11 +203,34 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
 
         {!isVision && (
           <div style={{ display: "flex", gap: 10, marginTop: 18, alignItems: "center" }}>
+            <button
+              type="button"
+              onClick={goPrevious}
+              disabled={i === 0}
+              aria-label={t("previous")}
+              style={{
+                minHeight: 48,
+                minWidth: 92,
+                padding: "0 14px",
+                borderRadius: 999,
+                border: "1px solid var(--ink-600)",
+                background: "var(--ink-800)",
+                fontFamily: "var(--font-display)",
+                fontSize: 11,
+                letterSpacing: "0.08em",
+                color: i === 0 ? "var(--mist-700)" : "var(--mist-300)",
+                opacity: i === 0 ? 0.45 : 1,
+                cursor: i === 0 ? "not-allowed" : "pointer",
+              }}
+            >
+              {dir === "rtl" ? "→" : "←"} {t("previous")}
+            </button>
             <motion.button
               onClick={advance}
               whileTap={{ scale: 0.97 }}
               style={{
                 flex: 1,
+                minWidth: 0,
                 minHeight: 48,
                 padding: "12px 0",
                 borderRadius: 999,

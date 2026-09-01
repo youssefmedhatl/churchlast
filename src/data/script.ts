@@ -300,6 +300,7 @@ const trumpet5: TrumpetScript = {
     {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
+      audioSrc: ["/audio/doors/door5-first-voiceover.wav"],
       text: {
         ar: "نادرا ما حد بيوصل هنا , بس بما انك وصلتي هنا قوليلي ,تعرفي ايه عن الويل الاول",
         en: "Rarely does anyone make it here — but since you have, tell me: what do you know about the first woe?",
