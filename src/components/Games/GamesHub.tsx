@@ -49,7 +49,9 @@ export default function GamesHub() {
       <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         {games.map((g, i) => {
           const score = gameScores[g.id];
-          const playable = unlocked && g.ready;
+          // Game 3 is intentionally always available. Do not gate it on
+          // completion state or a readiness flag.
+          const playable = g.id === "hear" || (unlocked && g.ready);
           return (
             <motion.div
               key={g.id}
@@ -94,6 +96,8 @@ export default function GamesHub() {
                   {g.ready ? `${t("gameBestScore")}: ${score.bestScore}` : t("gameComingSoon")}
                 </span>
                 <button
+                  type="button"
+                  aria-disabled={!playable}
                   disabled={!playable}
                   onClick={() => goTo({ type: "game", id: g.id })}
                   style={{

@@ -66,6 +66,8 @@ export interface TrumpetTheme {
 export interface TrumpetData {
   /** Audio extracted from the trumpet cinematic for the Hear the Trumpet game. */
   gameAudioSrc?: string[];
+  /** Optional Scripture reading recording for the trumpet. */
+  scriptureAudioSrc?: string[];
   index: number; // 1-7
   title: Bilingual;
   shortLabel: Bilingual;

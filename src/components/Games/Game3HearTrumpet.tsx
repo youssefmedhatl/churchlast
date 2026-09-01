@@ -39,6 +39,7 @@ export default function Game3HearTrumpet() {
   const [totalXp, setTotalXp] = useState(0);
   const [lastXp, setLastXp] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [audioError, setAudioError] = useState(false);
 
   const rounds = useMemo(() => shuffle(pool), [roundSeed]);
   const current = rounds[roundIndex];
@@ -50,23 +51,36 @@ export default function Game3HearTrumpet() {
     setOptions(buildOptions(current.index));
     setIsPlaying(false);
     setHasListened(false);
+    setAudioError(false);
     return () => stopVoice();
   }, [current, roundIndex]);
 
   const listen = () => {
-    if (!current?.gameAudioSrc) return;
+    if (!current?.gameAudioSrc?.length) {
+      setAudioError(true);
+      return;
+    }
+    setAudioError(false);
     setIsPlaying(true);
     setHasListened(true);
     playRecording(current.gameAudioSrc, (reason) => {
       setIsPlaying(false);
       if (reason === "ended" && phase === "listen") setPhase("answer");
+      if (reason === "error") setAudioError(true);
     });
   };
 
   const replay = () => {
-    if (!current?.gameAudioSrc) return;
+    if (!current?.gameAudioSrc?.length) {
+      setAudioError(true);
+      return;
+    }
+    setAudioError(false);
     setIsPlaying(true);
-    playRecording(current.gameAudioSrc, () => setIsPlaying(false));
+    playRecording(current.gameAudioSrc, (reason) => {
+      setIsPlaying(false);
+      if (reason === "error") setAudioError(true);
+    });
   };
 
   const handleAnswer = (index: number) => {
@@ -192,6 +206,11 @@ export default function Game3HearTrumpet() {
               <p style={{ color: "var(--mist-400)", fontSize: 13, lineHeight: 1.6, margin: "10px 0 20px" }}>
                 {t("hearGameInstruction")}
               </p>
+              {audioError && (
+                <p style={{ color: "var(--rust-500)", fontSize: 12, margin: "-4px 0 14px" }}>
+                  {lang === "ar" ? "تعذر تشغيل الصوت. حاول مرة أخرى." : "The sound could not be played. Try again."}
+                </p>
+              )}
               <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
                 <PrimaryButton onClick={listen} disabled={isPlaying}>
                   {isPlaying ? t("hearGamePlaying") : t("hearGameListenButton")}
