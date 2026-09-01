@@ -19,21 +19,15 @@ const trumpet4: TrumpetData = {
   gameAudioSrc: ["/audio/games/trumpet4.mp3"],
   title: { en: "The Fourth Trumpet", ar: "البوق الرابع" },
   shortLabel: { en: "The Darkened Sky", ar: "السماء المظلمة" },
-  scriptureRef: { en: "Revelation 8:12-13", ar: "رؤيا يوحنا اللاهوتي ٨: ١٢-١٣" },
+  scriptureRef: { en: "Revelation 8:12-13", ar: "رؤيا يوحنا اللاهوتي : ١٢-١٣" },
   scriptureIsTemporary: false,
   scriptureText: {
     en:
-      "The fourth angel sounded, and a third part of the sun was smitten, and a third part of the moon, " +
-      "and a third part of the stars; so as a third part of them was darkened, and the day shone not " +
-      "for a third part of it, and the night likewise. And I beheld, and heard an angel flying through " +
-      "the midst of heaven, saying with a loud voice, Woe, woe, woe, to the inhabiters of the earth by " +
-      "reason of the other voices of the trumpet of the three angels, which are yet to sound!",
+      "Then the fourth angel sounded: And a third of the sun was struck, a third of the moon, and a third of the stars, so that a third of them were darkened. A third of the day did not shine, and likewise the night. And I looked, and I heard an angel flying through the midst of heaven, saying with a loud voice: Woe, woe, woe to those who dwell on the earth, because of the remaining blasts of the trumpet of the three angels who are about to sound.",
     ar:
-      "ثُمَّ بَوَّقَ الْمَلاَكُ الرَّابِعُ، فَضُرِبَ ثُلْثُ الشَّمْسِ وَثُلْثُ الْقَمَرِ وَثُلْثُ النُّجُومِ، " +
-      "حَتَّى يُظْلِمَ ثُلْثُهُنَّ، وَالنَّهَارُ لاَ يُضِيءُ ثُلْثُهُ، وَاللَّيْلُ كَذلِكَ. ثُمَّ نَظَرْتُ وَسَمِعْتُ مَلاَكًا طَائِرًا " +
-      "فِي وَسَطِ السَّمَاءِ قَائِلاً بِصَوْتٍ عَظِيمٍ: «وَيْلٌ وَيْلٌ وَيْلٌ لِلسَّاكِنِينَ عَلَى الأَرْضِ مِنْ أَجْلِ بَقِيَّةِ " +
-      "أَصْوَاتِ أَبْوَاقِ الثَّلاَثَةِ الْمَلاَئِكَةِ الْمُزْمِعِينَ أَنْ يُبَوِّقُوا».",
+      "ثُمَّ بَوْقَ الْمَلاك الرابع، فَضُرِبَ ثُلْثُ الشَّمْسِ وَثُلْثُ الْقَمَرِ وَثُلْثُ النجوم، حَتَّى يُظْلِمَ تُلْثُهُنَّ، وَالنَّهَارُ لَا يُضِيءُ ثُلْثُهُ وَاللَّيْلُ كَذلِكَ. ثُمَّ نَظَرْتُ وَسَمِعْتُ مَلَاكًا طَائِرًا فِي وَسَطِ السَّمَاءِ قَائِلاً بِصَوْتٍ عَظِيمٍ: وَيْلٌ وَيْلٌ وَيْلٌ لِلسَّاكِنِينَ عَلَى الأَرْضِ مِنْ أَجْلِ بَقِيَّةِ أَصْوَاتِ أَبْوَاقِ الثَّلَاثَةِ الْمَلَائِكَةِ الْمُرْمِعِينَ أَنْ يُبَوِّقُوا ..",
   },
+
   narration: {
     en:
       "The light itself is struck. Sun, moon, stars — each dimmed by a third. The world does not go " +

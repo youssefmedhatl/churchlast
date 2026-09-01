@@ -376,7 +376,7 @@ const trumpet6: TrumpetScript = {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
       cue: "watch",
-      audioSrc: ["/audio/doors/door6-angel-part3.m4a"],
+      audioSrc: ["/audio/doors/door6-angel-part3-new.wav"],
       text: {
         ar:
           "انا كنت لسة هصدق انك مش عارفة فعلا , بس طلعتي ذكية زي ما سمعت , الصوت اللي انا مستنيه عشان اضرب البوق هو صوت اربعة قرون مذبح الذهب " +

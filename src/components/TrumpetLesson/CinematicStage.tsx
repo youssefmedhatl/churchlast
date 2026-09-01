@@ -10,6 +10,8 @@ interface CinematicStageProps {
   fullscreen: boolean;
   /** Overlay content (narration, cues) rendered inside the stage. */
   children?: ReactNode;
+  /** Hide the cinematic media while pre-video content such as Scripture is shown. */
+  visible?: boolean;
 }
 
 type Rect = { top: number; left: number; width: number; height: number };
@@ -27,7 +29,7 @@ type Rect = { top: number; left: number; width: number; height: number };
  * viewport, so the expansion reads as one continuous camera move rather than a
  * jump between two screens.
  */
-export default function CinematicStage({ trumpet, fullscreen, children }: CinematicStageProps) {
+export default function CinematicStage({ trumpet, fullscreen, children, visible = true }: CinematicStageProps) {
   const slotRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [slot, setSlot] = useState<Rect | null>(null);
@@ -100,6 +102,10 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
     const v = videoRef.current;
     if (!v) return;
     const tryPlay = () => {
+      if (!visible) {
+        v.pause();
+        return;
+      }
       v.play().catch(() => {
         /* retried on the next canplay/loadeddata event below */
       });
@@ -111,7 +117,7 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
       v.removeEventListener("canplay", tryPlay);
       v.removeEventListener("loadeddata", tryPlay);
     };
-  }, [showVideo, hasMeasured, trumpet.videoSrc]);
+  }, [showVideo, hasMeasured, trumpet.videoSrc, visible]);
 
   return (
     <>
@@ -159,6 +165,7 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
         style={{
           position: "fixed",
           zIndex: 41,
+          opacity: visible ? 1 : 0,
           overflow: "hidden",
           background: `radial-gradient(ellipse at 50% 30%, ${primary}33 0%, ${secondary} 70%)`,
           border: fullscreen ? "none" : "1px solid var(--ink-600)",
@@ -181,6 +188,7 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
             style={{
               position: "absolute",
               inset: 0,
+              opacity: visible ? 1 : 0,
               width: "100%",
               height: "100%",
               // Never stretched — original aspect ratio is preserved.
@@ -197,6 +205,7 @@ export default function CinematicStage({ trumpet, fullscreen, children }: Cinema
             style={{
               position: "absolute",
               inset: 0,
+              opacity: visible ? 1 : 0,
               width: "100%",
               height: "100%",
               objectFit: "contain",

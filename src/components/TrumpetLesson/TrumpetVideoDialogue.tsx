@@ -4,6 +4,7 @@ import type { TrumpetData, DialogueLine } from "../../data/trumpets/types";
 import { useLang } from "../../i18n/LanguageContext";
 import CinematicStage from "./CinematicStage";
 import DialogueTurn, { readingTimeMs } from "../common/DialogueTurn";
+import ScripturePanel from "./ScripturePanel";
 import { preloadRecordings, stopVoice } from "../../lib/voiceover";
 
 interface TrumpetVideoDialogueProps {
@@ -11,7 +12,10 @@ interface TrumpetVideoDialogueProps {
   onDone: () => void;
 }
 
-type Beat = { kind: "dialogue"; line: DialogueLine } | { kind: "narration" };
+type Beat =
+  | { kind: "dialogue"; line: DialogueLine }
+  | { kind: "narration" }
+  | { kind: "scripture" };
 
 /**
  * CHANGED (dialogue redesign): the trumpet beat is now a dedicated, cinematic
@@ -45,6 +49,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
 
   const beats: Beat[] = [
     ...(trumpet.introDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
+    ...(trumpet.index === 4 ? [{ kind: "scripture" as const }] : []),
     { kind: "narration" as const },
     ...(trumpet.closingDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
   ];
@@ -52,6 +57,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
   const beat = beats[i];
   const isLast = i === beats.length - 1;
   const isVision = beat.kind === "narration";
+  const isScripture = beat.kind === "scripture";
   const isCue = beat.kind === "dialogue" && beat.line.cue === "watch";
 
   // Stop whatever is playing the instant we move on (including handing off
@@ -79,7 +85,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
   // lines. The hand-off line and the vision always wait for the presenter.
   // Lines with a recording advance when it finishes instead (see DialogueTurn).
   useEffect(() => {
-    if (!autoPlay || isVision || isCue || isLast || hasRecording) return;
+    if (!autoPlay || isVision || isScripture || isCue || isLast || hasRecording) return;
     if (beat.kind !== "dialogue") return;
     const id = window.setTimeout(advance, readingTimeMs(beat.line.text[lang]));
     return () => window.clearTimeout(id);
@@ -87,6 +93,10 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
 
   const controlLabel = isVision
     ? t("continueLabel")
+    : isScripture
+    ? lang === "ar"
+      ? "متابعة"
+      : "Continue"
     : isCue
     ? lang === "ar"
       ? "شاهد الرؤيا"
@@ -97,7 +107,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
 
   return (
     <div style={{ userSelect: "none" }}>
-      <CinematicStage trumpet={trumpet} fullscreen={isVision}>
+      <CinematicStage trumpet={trumpet} fullscreen={isVision} visible={!isScripture}>
         <AnimatePresence>
           {isVision && (
             <motion.div
@@ -197,6 +207,17 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
                 voiceAutoPlay={autoPlay && !isCue && !isLast}
                 onAutoAdvance={advance}
               />
+            </motion.div>
+          )}
+          {isScripture && (
+            <motion.div
+              key={`scripture-${i}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ScripturePanel trumpet={trumpet} />
             </motion.div>
           )}
         </AnimatePresence>
