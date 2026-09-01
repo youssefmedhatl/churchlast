@@ -1,7 +1,15 @@
 import type { TrumpetData, DialogueLine } from "./types";
 
 const introDialogue: DialogueLine[] = [
-  { speaker: "girl", text: { en: "The fifth trumpet feels different.", ar: "البوق الخامس يبدو مختلفاً." } },
+  {
+    speaker: "angel",
+    speakerLabel: { en: "The Fifth Angel", ar: "الملاك الخامس" },
+    text: {
+      en: "Rarely does anyone make it this far. But since you did, tell me: what do you know about the first woe — the fifth angel?",
+      ar: "نادرا ما حد بيوصل هنا، بس بما انك وصلتي هنا قوليلي تعرفي ايه عن الويل الاول الملاك الخامس",
+    },
+    audioSrc: ["/audio/doors/door5-first-voiceover.wav"],
+  },
   { speaker: "narrator", text: { en: "It is.", ar: "بالفعل." } },
   { speaker: "girl", text: { en: "What happens?", ar: "ماذا يحدث؟" } },
   { speaker: "narrator", text: { en: "Smoke rises from the abyss, and the vision becomes darker.", ar: "يصعد دخان من الهاوية، وتصبح الرؤيا أكثر ظلمة." } },

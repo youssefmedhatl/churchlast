@@ -315,12 +315,11 @@ const trumpet5: TrumpetScript = {
     },
     {
       speaker: "angel",
-      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      cue: "watch",
-      audioSrc: ["/audio/doors/door5-angel-part2.m4a"],
+      speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
+      audioSrc: ["/audio/doors/door5-angel-part3-restored.wav"],
       text: {
-        ar: "دنتي مذاكرة كويس بقا , لازم نقرأ كويس الاول",
-        en: "You really have studied well then — but first, we have to read it properly.",
+        ar: "ازاي عديتي من كل اللي فات ده ومش عارفة مين دول . علي عموم انا مستني صوت واحد وهفكهم وساعتها هتعرفي هيعملوا ايه",
+        en: "How did you get through everything so far and not know who these are? Anyway, I'm waiting for one sound, and then I'll release them — you'll find out then what they'll do.",
       },
     },
   ],
@@ -347,13 +346,6 @@ const trumpet5: TrumpetScript = {
 // ---------------------------------------------------------------------
 const trumpet6: TrumpetScript = {
   intro: [
-    {
-      speaker: "narrator",
-      text: {
-        ar: "يلاقي الملائكة المقيدين يدخل الباب",
-        en: "As she enters the door, she finds bound angels.",
-      },
-    },
     {
       speaker: "girl",
       audioSrc: ["/audio/doors/girl-part09.m4a"],

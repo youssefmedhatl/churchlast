@@ -23,7 +23,7 @@ interface TrumpetLessonProps {
 
 export default function TrumpetLesson({ index }: TrumpetLessonProps) {
   const trumpet = getTrumpet(index);
-  const { t, lang } = useLang();
+  const { t, lang, dir } = useLang();
   const { addXp, completeTrumpet, xp, goToTab, goTo, openPresentationMode } = useJourneyStore();
 
   const [stage, setStage] = useState<Stage>("introduction");
@@ -88,10 +88,37 @@ export default function TrumpetLesson({ index }: TrumpetLessonProps) {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          gap: 12,
           padding: "16px 20px 6px",
         }}
       >
         <button
+          type="button"
+          onClick={() => goToTab("dashboard")}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 7,
+            minHeight: 34,
+            padding: "0 11px",
+            borderRadius: 999,
+            border: "1px solid var(--ink-600)",
+            background: "rgba(20,22,29,0.72)",
+            fontFamily: "var(--font-display)",
+            fontSize: 10,
+            letterSpacing: "0.08em",
+            color: "var(--mist-400)",
+            textTransform: "uppercase",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: 16, lineHeight: 1 }}>
+            {dir === "rtl" ? "→" : "←"}
+          </span>
+          {t("backToJourney")}
+        </button>
+        <button
+          type="button"
           onDoubleClick={openPresentationMode}
           style={{
             fontFamily: "var(--font-display)",
