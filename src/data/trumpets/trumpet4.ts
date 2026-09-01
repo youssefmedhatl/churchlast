@@ -16,6 +16,7 @@ const trumpet4: TrumpetData = {
   imageSrc: "/trumpets/trumpet4.jpg", // placeholder - add public/trumpets/trumpet4.jpg
   videoSrc: "/videos/trumpet4.mp4",
   index: 4,
+  gameAudioSrc: ["/audio/games/trumpet4.mp3"],
   title: { en: "The Fourth Trumpet", ar: "البوق الرابع" },
   shortLabel: { en: "The Darkened Sky", ar: "السماء المظلمة" },
   scriptureRef: { en: "Revelation 8:12-13", ar: "رؤيا يوحنا اللاهوتي ٨: ١٢-١٣" },

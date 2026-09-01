@@ -16,6 +16,7 @@ const trumpet3: TrumpetData = {
   imageSrc: "/trumpets/trumpet3.jpg", // placeholder - add public/trumpets/trumpet3.jpg
   videoSrc: "/videos/trumpet3.mp4",
   index: 3,
+  gameAudioSrc: ["/audio/games/trumpet3.mp3"],
   title: { en: "The Third Trumpet", ar: "البوق الثالث" },
   shortLabel: { en: "The Star Wormwood", ar: "نجم الأفسنتين" },
   scriptureRef: { en: "Revelation 8:10-11", ar: "رؤيا ٨: ١٠-١١" },

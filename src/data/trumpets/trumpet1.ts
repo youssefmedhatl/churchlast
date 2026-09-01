@@ -22,6 +22,7 @@ const trumpet1: TrumpetData = {
   videoSrc: "/videos/trumpet1.mp4",
   imageSrc: "/trumpets/trumpet1.jpg", // placeholder - add public/trumpets/trumpet1.jpg
   index: 1,
+  gameAudioSrc: ["/audio/games/trumpet1.mp3"],
   title: { en: "The First Trumpet", ar: "البوق الأول" },
   shortLabel: { en: "Hail and Fire", ar: "برد ونار" },
   scriptureRef: { en: "Revelation 8:7", ar: "رؤيا يوحنا اللاهوتي ٨: ٧" },

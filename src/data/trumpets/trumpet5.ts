@@ -26,6 +26,7 @@ const trumpet5: TrumpetData = {
   imageSrc: "/trumpets/trumpet5.jpg", // placeholder - add public/trumpets/trumpet5.jpg
   videoSrc: "/videos/trumpet5.mp4",
   index: 5,
+  gameAudioSrc: ["/audio/games/trumpet5.mp3"],
   title: { en: "The Fifth Trumpet", ar: "البوق الخامس" },
   shortLabel: { en: "The Bottomless Pit", ar: "البئر بلا قرار" },
   scriptureRef: { en: "Revelation 9:1-12", ar: "رؤيا يوحنا اللاهوتي ٩: ١-١٢" },

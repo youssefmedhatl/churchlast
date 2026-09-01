@@ -17,6 +17,7 @@ const trumpet2: TrumpetData = {
   imageSrc: "/trumpets/trumpet2.jpg", // placeholder - add public/trumpets/trumpet2.jpg
   videoSrc: "/videos/trumpet2.mp4",
   index: 2,
+  gameAudioSrc: ["/audio/games/trumpet2.mp3"],
   title: { en: "The Second Trumpet", ar: "البوق الثاني" },
   shortLabel: { en: "The Burning Mountain", ar: "الجبل المتقد" },
   scriptureRef: { en: "Revelation 8:8-9", ar: "رؤيا ٨: ٨-٩" },

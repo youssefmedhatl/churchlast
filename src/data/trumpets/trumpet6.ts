@@ -23,6 +23,7 @@ const trumpet6: TrumpetData = {
   videoSrc: "/videos/trumpet6.mp4",
   imageSrc: "/trumpets/trumpet6.jpg", // placeholder - add public/trumpets/trumpet6.jpg
   index: 6,
+  gameAudioSrc: ["/audio/games/trumpet6.mp3"],
   title: { en: "The Sixth Trumpet", ar: "البوق السادس" },
   shortLabel: { en: "The Four Angels Loosed", ar: "الملائكة الأربعة المُطلَقون" },
   scriptureRef: { en: "Revelation 9:17-18", ar: "رؤيا ٩: ١٧-١٨" },

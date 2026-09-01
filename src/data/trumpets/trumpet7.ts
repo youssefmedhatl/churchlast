@@ -22,6 +22,7 @@ const trumpet7: TrumpetData = {
   imageSrc: "/trumpets/trumpet7.jpg", // placeholder - add public/trumpets/trumpet7.jpg
   videoSrc: "/videos/trumpet7.mp4",
   index: 7,
+  gameAudioSrc: ["/audio/games/trumpet7.mp3"],
   title: { en: "The Seventh Trumpet", ar: "البوق السابع" },
   shortLabel: { en: "The Kingdom Proclaimed", ar: "إعلان الملكوت" },
   scriptureRef: { en: "Revelation 11:15-19", ar: "رؤيا ١١: ١٥-١٩" },

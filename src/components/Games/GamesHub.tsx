@@ -11,7 +11,7 @@ const games: {
 }[] = [
   { id: "match", icon: "🎺", titleKey: "matchGameTitle", descKey: "matchGameDesc", ready: true },
   { id: "seven-second", icon: "⚡", titleKey: "sevenSecGameTitle", descKey: "sevenSecGameDesc", ready: true },
-  { id: "hear", icon: "👂", titleKey: "hearGameTitle", descKey: "hearGameDesc", ready: false },
+  { id: "hear", icon: "👂", titleKey: "hearGameTitle", descKey: "hearGameDesc", ready: true },
   { id: "emoji-guess", icon: "🤔", titleKey: "emojiGameTitle", descKey: "emojiGameDesc", ready: true },
 ];
 
@@ -19,8 +19,8 @@ export default function GamesHub() {
   const { t } = useLang();
   const { gameScores, goTo } = useJourneyStore();
   // CHANGED: games are always unlocked now, regardless of trumpet progress.
-  // "ready" (per-game) still gates Game 3 until real audio assets exist —
-  // that's a content-readiness flag, not a progression lock.
+  // All four games are now fully playable from the first launch.
+  // There is no content-readiness gate on the Games screen.
   const unlocked = true;
 
   return (
@@ -61,7 +61,7 @@ export default function GamesHub() {
                 border: "1px solid var(--ink-600)",
                 borderRadius: 18,
                 padding: "18px 18px",
-                opacity: g.ready ? 1 : 0.55,
+                opacity: 1,
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
