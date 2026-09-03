@@ -188,7 +188,7 @@ export default function TrumpetLesson({ index }: TrumpetLessonProps) {
                 {/* Video/image plays continuously behind the intro dialogue,
                     narration, and closing dialogue -- all one beat sequence,
                     tap or swipe through. See TrumpetVideoDialogue. */}
-                <TrumpetVideoDialogue trumpet={trumpet} onDone={() => advance(index === 5 ? "question" : "scripture")} />
+                <TrumpetVideoDialogue trumpet={trumpet} onDone={() => advance([5, 7].includes(index) ? "question" : "scripture")} />
               </motion.div>
             )}
 

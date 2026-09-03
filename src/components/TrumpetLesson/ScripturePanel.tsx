@@ -6,10 +6,19 @@ import { accent } from "../common/CharacterPortrait";
 
 interface ScripturePanelProps {
   trumpet: TrumpetData;
+  override?: {
+    ref: { en: string; ar: string };
+    text: { en: string; ar: string };
+    audioSrc?: string[];
+  };
 }
 
-export default function ScripturePanel({ trumpet }: ScripturePanelProps) {
+export default function ScripturePanel({ trumpet, override }: ScripturePanelProps) {
   const { t, lang } = useLang();
+
+  const scriptureRef = override?.ref ?? trumpet.scriptureRef;
+  const scriptureText = override?.text ?? trumpet.scriptureText;
+  const scriptureAudioSrc = override?.audioSrc ?? trumpet.scriptureAudioSrc;
 
   return (
     <motion.div
@@ -53,12 +62,12 @@ export default function ScripturePanel({ trumpet }: ScripturePanelProps) {
             opacity: 0.75,
           }}
         >
-          <span>{trumpet.scriptureRef[lang]}</span>
-          {trumpet.scriptureAudioSrc?.length ? (
+          <span>{scriptureRef[lang]}</span>
+          {scriptureAudioSrc?.length ? (
             <VoicePlayButton
-              text={trumpet.scriptureText[lang]}
+              text={scriptureText[lang]}
               lang={lang}
-              audioSrc={trumpet.scriptureAudioSrc}
+              audioSrc={scriptureAudioSrc}
               tone={accent.angel.label}
               size={28}
             />
@@ -75,7 +84,7 @@ export default function ScripturePanel({ trumpet }: ScripturePanelProps) {
           margin: 0,
         }}
       >
-        {trumpet.scriptureText[lang]}
+        {scriptureText[lang]}
       </p>
 
       {trumpet.scriptureIsTemporary && (

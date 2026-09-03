@@ -15,7 +15,14 @@ interface TrumpetVideoDialogueProps {
 type Beat =
   | { kind: "dialogue"; line: DialogueLine }
   | { kind: "narration" }
-  | { kind: "scripture" };
+  | {
+      kind: "scripture";
+      scripture?: {
+        ref: { en: string; ar: string };
+        text: { en: string; ar: string };
+        audioSrc?: string[];
+      };
+    };
 
 /**
  * CHANGED (dialogue redesign): the trumpet beat is now a dedicated, cinematic
@@ -47,11 +54,16 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
     );
   }, [trumpet]);
 
+  const closingBeats: Beat[] = (trumpet.closingDialogue ?? []).flatMap((line) => [
+    { kind: "dialogue" as const, line },
+    ...(line.afterScripture ? [{ kind: "scripture" as const, scripture: line.afterScripture }] : []),
+  ]);
+
   const beats: Beat[] = [
     ...(trumpet.introDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
     ...([4, 5].includes(trumpet.index) ? [{ kind: "scripture" as const }] : []),
     { kind: "narration" as const },
-    ...(trumpet.closingDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
+    ...closingBeats,
   ];
 
   const beat = beats[i];
@@ -217,7 +229,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <ScripturePanel trumpet={trumpet} />
+              <ScripturePanel trumpet={trumpet} override={beat.kind === "scripture" ? beat.scripture : undefined} />
             </motion.div>
           )}
         </AnimatePresence>

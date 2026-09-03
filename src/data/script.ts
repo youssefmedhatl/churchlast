@@ -460,6 +460,13 @@ const trumpet7: TrumpetScript = {
         ar: "ده اعلان النصرة علي مملكة الشيطان واعلان ملك الله ولما اتقالت الايه دي الاربعة وعشرين قسيس الجالسين امام الله علي وشوشهم وسجدا وقالوا",
         en: "This is the announcement of victory over the kingdom of the devil, and the announcement of God's reign. And when this verse was spoken, the twenty-four elders seated before God fell on their faces and worshiped, saying —",
       },
+      afterScripture: {
+        ref: { en: "Revelation 11:15", ar: "رؤيا يوحنا اللاهوتي ١١: ١٥" },
+        text: {
+          en: "The kingdoms of this world are become the kingdoms of our Lord, and of his Christ; and he shall reign for ever and ever.",
+          ar: "قَدْ صَارَتْ مَمَالِكُ الْعَالَمِ لِرَبِّنَا وَمَسِيحِهِ، فَسَيَمْلِكُ إِلَى أَبَدِ الآبِدِينَ",
+        },
+      },
     },
     {
       // Merged: combines the thanksgiving-hymn and ark-of-the-covenant turns into one continuous beat.
@@ -474,6 +481,13 @@ const trumpet7: TrumpetScript = {
           "They offered this beautiful hymn to God, thanking Him for what He did in bringing justice on the kingdom of evil and proving it false, and for spreading His reign, for the world turning to faith, and for the declaration of His infinite power in creating and governing the world, " +
           "and because not every ending is a happy one, the trumpet closes with the appearing of the Ark of the Covenant and the appearing of signs of discipline —",
       },
+      afterScripture: {
+        ref: { en: "Revelation 11:17-18", ar: "رؤيا يوحنا اللاهوتي ١١: ١٧-١٨" },
+        text: {
+          en: "We give You thanks, O Lord God Almighty, Who is and Who was and Who is to come, because You have taken Your great power and reigned. The nations were angry, and Your wrath has come, and the time of the dead, that they should be judged, and that You should reward Your servants the prophets and the saints and those who fear Your name, both small and great, and should destroy those who destroy the earth.",
+          ar: "نَشْكُرُكَ أَيُّهَا الرَّبُّ الإِلَهُ الْقَادِرُ عَلَى كُلِّ شَىْءٍ، الْكَائِنُ وَالَّذِى كَانَ وَالَّذِى يَأْتِى، لأَنَّكَ أَخَذْتَ قُدْرَتَكَ الْعَظِيمَةَ وَمَلَكْتَ. 18 وَغَضِبَتِ الأُمَمُ فَأَتَى غَضَبُكَ وَزَمَانُ الأَمْوَاتِ لِيدَانُوا، وَلِتُعْطَى الأُجْرَةُ لِعَبِيدِكَ الأَنْبِيَاءِ وَالْقِدِّيسِينَ وَالْخَائِفِينَ اسْمَكَ، الصِّغَارِ وَالْكِبَارِ، وَلِيُهْلَكَ الَّذِينَ كَانُوا يُهْلِكُونَ الأَرْضَ",
+        },
+      },
     },
     {
       speaker: "angel",
@@ -483,6 +497,14 @@ const trumpet7: TrumpetScript = {
       text: {
         ar: "دي مظاهر مرتبطه بعظمة و جلال الله و هيبته و بتعلن ان حدثا عظيما بيتم امام حضرته",
         en: "these are signs tied to the greatness, majesty, and awe of God, declaring that a great event is taking place before His presence.",
+      },
+      afterScripture: {
+        ref: { en: "Revelation 11:19", ar: "رؤيا يوحنا اللاهوتي ١١: ١٩" },
+        text: {
+          en: "And the temple of God was opened in heaven, and there was seen in his temple the ark of his testament: and there were lightnings, and voices, and thunderings, and an earthquake, and great hail.",
+          ar: "وَانْفَتَحَ هَيْكَلُ اللهِ فِي السَّمَاءِ، وَظَهَرَ تَابُوتُ عَهْدِهِ فِي هَيْكَلِهِ، وَحَدَثَتْ بُرُوقٌ وَأَصْوَاتٌ وَرُعُودٌ وَزَلْزَلَةٌ وَبَرَدٌ عَظِيمٌ.",
+        },
+        audioSrc: ["/audio/doors/door7-scripture.m4a"],
       },
     },
   ],
