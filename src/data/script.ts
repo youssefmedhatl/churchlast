@@ -316,27 +316,24 @@ const trumpet5: TrumpetScript = {
     },
     {
       speaker: "angel",
-      speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
-      audioSrc: ["/audio/doors/door5-angel-part3-restored.wav"],
+      speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
+      audioSrc: ["/audio/doors/door5-new-bridge.m4a"],
       text: {
-        ar: "ازاي عديتي من كل اللي فات ده ومش عارفة مين دول . علي عموم انا مستني صوت واحد وهفكهم وساعتها هتعرفي هيعملوا ايه",
-        en: "How did you get through everything so far and not know who these are? Anyway, I'm waiting for one sound, and then I'll release them — you'll find out then what they'll do.",
+        ar: "دنتي\nمذاكرة كويس بقا ,\nلازم\nنقرأ كويس الاول",
+        en: "You really need to study well then — we need to read carefully first.",
       },
     },
   ],
   closing: [
     {
-      // Merged: the entire closing monologue is now one continuous beat
-      // (previously split into seven short turns).
       speaker: "angel",
       speakerLabel: angelLabel("الملاك الخامس", "The Fifth Angel"),
-      audioSrc: ["/audio/doors/door5-angel-part3.m4a"],
-      cue: "watch",
+      audioSrc: ["/audio/doors/door5-new-explanation.m4a"],
       text: {
         ar:
-          "بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكثر مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي . سلام",
+          "في بعض التفاسير سقوط الكوكب ده اشارة لانتكاسة هتحصل لشخصية دينية مركزها كبير , و ده اللي هيفتح بئر الجحيم وهيملى العالم بدخان الشياطين اللي هي افكارهم , وهيخرج الجراد المخرب وعشان تفهمي خطورة الجراد انه اتشبه الاحصنة المجهزة للحرب وهيكون بوجه بشر , والاكاليل هتبقى اشارة للسلطان اللي هيكون عند الجراد ده , هتكون شكلها جميل وعندها شعر زي شعر النساء , لكن عندها اسنان شبه اسنان الاسود فحدتها , ودروعها وصوت اجنحتها المفزع اشارة لشده عنف وانتشار الجراد وهتعذب البشر لمدة خمس شهور وملكها اسمه أبدون او ابولين اللي معناه المخرب او المهلك , ورغم كل اللي اتقال عن البوق ده ,بنشوف برضه حنان ورحمة ربنا , فهو مسمحش بهلاك الخليقة كلها ,وده ظهر بردو فحنانه علي الضعفاة , بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكتر مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي , سلام",
         en:
-          "He protects those at the beginning of the faith and cares for the weak souls who need His tenderness and mercy more. Whatever you've seen in this trumpet won't compare to what's coming next. Peace.",
+          "In some interpretations, the falling of this star points to a setback involving a major religious figure, and that is what will open the pit of hell and fill the world with the smoke of the demons — their ideas. The destructive locusts will emerge, and to understand their danger, they are compared to horses prepared for war, with human faces. The crowns point to the authority those locusts will have. They will look beautiful and have hair like women's hair, but they will have teeth as sharp as lions' teeth. Their breastplates and the terrifying sound of their wings point to the intensity and spread of the locusts, and they will torment people for five months. Their king is called Abaddon or Apollyon, meaning the destroyer or the one who destroys. Despite everything said about this trumpet, we also see God's tenderness and mercy: He did not permit the destruction of the entire creation. This also appeared in His care for the weak — He preserves those at the beginning of the faith and cares for the weak souls who need His tenderness and mercy even more. Whatever you have seen in this trumpet will be nothing compared with what is coming. Peace.",
       },
     },
   ],

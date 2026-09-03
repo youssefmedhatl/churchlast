@@ -10,15 +10,28 @@ const introDialogue: DialogueLine[] = [
     },
     audioSrc: ["/audio/doors/door5-first-voiceover.wav"],
   },
-  { speaker: "narrator", text: { en: "It is.", ar: "بالفعل." } },
-  { speaker: "girl", text: { en: "What happens?", ar: "ماذا يحدث؟" } },
-  { speaker: "narrator", text: { en: "Smoke rises from the abyss, and the vision becomes darker.", ar: "يصعد دخان من الهاوية، وتصبح الرؤيا أكثر ظلمة." } },
-  { speaker: "girl", text: { en: "And the locusts?", ar: "وماذا عن الجراد؟" } },
-  { speaker: "narrator", text: { en: "Watch their description carefully.", ar: "راقب وصفها بعناية." } },
+  { speaker: "girl", text: { en: "What I know is that in this trumpet, the pit of the abyss opens, and there will be locusts with the strength of lions, whose sting is like a scorpion's, and they'll be equipped like horses prepared for war.", ar: "اللي اعرفه انه تقريبا في البوق ده بئر الجحيم هتفتح وهيكون في جراد بقوة الاسود ولدعته زي لدعة العقرب واستعداده هيكون زي استعداد احصنة للحرب" } },
+  {
+    speaker: "angel",
+    speakerLabel: { en: "The Fifth Angel", ar: "الملاك الخامس" },
+    text: {
+      en: "You really need to study well then — we need to read carefully first.",
+      ar: "دنتي\nمذاكرة كويس بقا ,\nلازم\nنقرأ كويس الاول",
+    },
+    audioSrc: ["/audio/doors/door5-new-bridge.m4a"],
+  },
 ];
 
 const closingDialogue: DialogueLine[] = [
-  { speaker: "narrator", text: { en: "Remember what Scripture says.", ar: "تذكّر ما يقوله الكتاب المقدس." } },
+  {
+    speaker: "angel",
+    speakerLabel: { en: "The Fifth Angel", ar: "الملاك الخامس" },
+    audioSrc: ["/audio/doors/door5-new-explanation.m4a"],
+    text: {
+      en: "In some interpretations, the falling of this star points to a setback involving a major religious figure, and that is what will open the pit of hell and fill the world with the smoke of the demons — their ideas. The destructive locusts will emerge, and to understand their danger, they are compared to horses prepared for war, with human faces. The crowns point to the authority those locusts will have. They will look beautiful and have hair like women's hair, but they will have teeth as sharp as lions' teeth. Their breastplates and the terrifying sound of their wings point to the intensity and spread of the locusts, and they will torment people for five months. Their king is called Abaddon or Apollyon, meaning the destroyer or the one who destroys. Despite everything said about this trumpet, we also see God's tenderness and mercy: He did not permit the destruction of the entire creation. This also appeared in His care for the weak — He preserves those at the beginning of the faith and cares for the weak souls who need His tenderness and mercy even more. Whatever you have seen in this trumpet will be nothing compared with what is coming. Peace.",
+      ar: "في بعض التفاسير سقوط الكوكب ده اشارة لانتكاسة هتحصل لشخصية دينية مركزها كبير , و ده اللي هيفتح بئر الجحيم وهيملى العالم بدخان الشياطين اللي هي افكارهم , وهيخرج الجراد المخرب وعشان تفهمي خطورة الجراد انه اتشبه الاحصنة المجهزة للحرب وهيكون بوجه بشر , والاكاليل هتبقى اشارة للسلطان اللي هيكون عند الجراد ده , هتكون شكلها جميل وعندها شعر زي شعر النساء , لكن عندها اسنان شبه اسنان الاسود فحدتها , ودروعها وصوت اجنحتها المفزع اشارة لشده عنف وانتشار الجراد وهتعذب البشر لمدة خمس شهور وملكها اسمه أبدون او ابولين اللي معناه المخرب او المهلك , ورغم كل اللي اتقال عن البوق ده ,بنشوف برضه حنان ورحمة ربنا , فهو مسمحش بهلاك الخليقة كلها ,وده ظهر بردو فحنانه علي الضعفاة , بيحفظ اللي فبداية الايمان وبيعتني بالنفوس الضعيفة اللي محتاجه حنانه ورحمته اكتر مهما كان اللي شوفته في البوق ده مش هيكون حاجة قصاد اللي جاي , سلام",
+    },
+  },
 ];
 
 /** TEMPORARY PLACEHOLDER content — pending verified Coptic Reader text. Reference: Revelation 9:1-11 */

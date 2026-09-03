@@ -29,8 +29,8 @@ type Beat =
  *     the sound fades up. When it ends we return to the dialogue/Scripture
  *     interface as one continuous move.
  *
- * The beat order and the onDone contract are unchanged: intro dialogue →
- * narration (the vision) → closing dialogue → Scripture.
+ * Beat order is intro dialogue → Scripture (for trumpets 5 and 4) →
+ * narration (the vision) → closing dialogue.
  */
 export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDialogueProps) {
   const { lang, t, dir } = useLang();
@@ -49,7 +49,7 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
 
   const beats: Beat[] = [
     ...(trumpet.introDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
-    ...(trumpet.index === 4 ? [{ kind: "scripture" as const }] : []),
+    ...([4, 5].includes(trumpet.index) ? [{ kind: "scripture" as const }] : []),
     { kind: "narration" as const },
     ...(trumpet.closingDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
   ];
