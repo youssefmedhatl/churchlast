@@ -25,12 +25,6 @@ export interface DialogueLine {
     text: Bilingual;
     audioSrc?: string[];
   };
-  /** Optional Scripture panel shown immediately after this dialogue turn. */
-  afterScripture?: {
-    ref: Bilingual;
-    text: Bilingual;
-    audioSrc?: string[];
-  };
   /**
    * Optional composition override. By default the Girl sits on the LEFT,
    * the Angel on the RIGHT and the Holy Father on the LEFT; a line can

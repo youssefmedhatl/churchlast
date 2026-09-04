@@ -50,3 +50,8 @@ A fresh Vite production build could not be executed in this isolated environment
 ## 2026-09-04 Update
 - Door 6 closing dialogue now uses `door6-angel-part2-complete.wav` (complete replacement recording).
 - Door 7 closing dialogue now uses `door7-angel-part2-new-2026-09-04.m4a` (replacement recording).
+
+## 2026-09-04 Final Inline Scripture Update
+- Door 3: Revelation 8:10-11 is now shown immediately after the angel's dialogue ending with `محتاجين نقرأ رؤيا 8 عدد 10 و11`.
+- Door 6: Revelation 9:17-18 is now shown immediately after the angel's dialogue ending with `وتجهيز الجيش ده كان قوي و محتاجين نقراه`.
+- After either inline Scripture panel is advanced, the existing cinematic/narration stage continues normally.

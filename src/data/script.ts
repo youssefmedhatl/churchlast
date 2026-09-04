@@ -192,6 +192,19 @@ const trumpet3: TrumpetScript = {
         ar: "واضح انك ذكية فعلا , اه الافسنتين نبات مر , بس عشان نفهم ايه المقصود بيه محتاجين نقرأ رؤيا 8 عدد 10 و11",
         en: "You really are clever — yes, Wormwood is a bitter plant. But to understand what's meant by it, we need to read Revelation chapter 8, verses 10 and 11.",
       },
+      afterScripture: {
+        ref: { en: "Revelation 8:10-11", ar: "رؤيا ٨: ١٠-١١" },
+        text: {
+          en:
+            "The third angel sounded, and there fell a great star from heaven, burning as it were a lamp, " +
+            "and it fell upon a third part of the rivers, and upon the fountains of waters; and the name of " +
+            "the star is called Wormwood: and many men died of the waters, because they were made bitter.",
+          ar:
+            "ثُمَّ بَوَّقَ الْمَلاَكُ الثَّالِثُ، فَسَقَطَ مِنَ السَّمَاءِ كَوْكَبٌ عَظِيمٌ مُتَّقِدٌ كَمِصْبَاحٍ، " +
+            "وَوَقَعَ عَلَى ثُلْثِ الأَنْهَارِ وَعَلَى يَنَابِيعِ الْمِيَاهِ. وَاسْمُ الْكَوْكَبِ يُدْعَى «الأَفْسَنْتِينُ». " +
+            "فَصَارَ ثُلْثُ الْمِيَاهِ أَفْسَنْتِينًا، وَمَاتَ كَثِيرُونَ مِنَ النَّاسِ مِنَ الْمِيَاهِ لأَنَّهَا صَارَتْ مُرَّةً.",
+        },
+      },
     },
   ],
   closing: [
@@ -381,6 +394,20 @@ const trumpet6: TrumpetScript = {
         en:
           "I was about to believe you really didn't know — but you turned out to be sharp, just like I heard. The sound I'm waiting for to sound my trumpet is the voice of the four horns of the golden altar, " +
           "and once I hear it, I'll release these angels who were prepared for this very moment. And just as you said, they won't be alone — there will be an army of horsemen with them, two hundred million strong, and their equipment was so striking, we need to read about it.",
+      },
+      afterScripture: {
+        ref: { en: "Revelation 9:17-18", ar: "رؤيا ٩: ١٧-١٨" },
+        text: {
+          en:
+            "And thus I saw the horses in the vision, and them that sat on them, having breastplates of fire, " +
+            "and of jacinth, and brimstone: and the heads of the horses were as the heads of lions; and out of " +
+            "their mouths issued fire and smoke and brimstone. By these three was the third part of men killed, " +
+            "by the fire, and by the smoke, and by the brimstone, which issued out of their mouths.",
+          ar:
+            "وَهَكَذَا رَأَيْتُ الْخَيْلَ فِي الرُّؤْيَا، وَالْجَالِسِينَ عَلَيْهَا، لَهُمْ دُرُوعٌ نَارِيَّةٌ وَأَسْمَانْجُونِيَّةٌ وَكِبْرِيتِيَّةٌ، " +
+            "وَرُؤُوسُ الْخَيْلِ كَرُؤُوسِ الأُسُودِ، وَمِنْ أَفْوَاهِهَا يَخْرُجُ نَارٌ وَدُخَانٌ وَكِبْرِيتٌ. مِنْ هَذِهِ الثَّلاَثَةِ قُتِلَ ثُلْثُ النَّاسِ، " +
+            "مِنَ النَّارِ وَالدُّخَانِ وَالْكِبْرِيتِ الْخَارِجَةِ مِنْ أَفْوَاهِهَا.",
+        },
       },
     },
   ],

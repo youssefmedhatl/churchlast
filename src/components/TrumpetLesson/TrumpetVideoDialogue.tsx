@@ -54,13 +54,18 @@ export default function TrumpetVideoDialogue({ trumpet, onDone }: TrumpetVideoDi
     );
   }, [trumpet]);
 
+  const introBeats: Beat[] = (trumpet.introDialogue ?? []).flatMap((line) => [
+    { kind: "dialogue" as const, line },
+    ...(line.afterScripture ? [{ kind: "scripture" as const, scripture: line.afterScripture }] : []),
+  ]);
+
   const closingBeats: Beat[] = (trumpet.closingDialogue ?? []).flatMap((line) => [
     { kind: "dialogue" as const, line },
     ...(line.afterScripture ? [{ kind: "scripture" as const, scripture: line.afterScripture }] : []),
   ]);
 
   const beats: Beat[] = [
-    ...(trumpet.introDialogue ?? []).map((line) => ({ kind: "dialogue" as const, line })),
+    ...introBeats,
     ...([4, 5].includes(trumpet.index) ? [{ kind: "scripture" as const }] : []),
     { kind: "narration" as const },
     ...closingBeats,
