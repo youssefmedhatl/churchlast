@@ -17,10 +17,10 @@ Approved script: scuola biblica copione (4)(1).docx
 - `door5-angel-part2.m4a` ← `الملاك الخامس (الجزء التاني)_mixdown.wav` (2.419271s) — canonical
 - `door5-angel-part3.m4a` ← `الملاك الخامس (الجزء الثالث)_mixdown.wav` (9.667729s) — canonical
 - `door6-angel-part1.m4a` ← `الملاك السادس (الجزء الول)_mixdown.wav` (6.911000s) — canonical
-- `door6-angel-part2.m4a` ← `الملاك السادس (الجزء التاني)_mixdown.wav` (16.914208s) — canonical
+- `door6-angel-part2-complete.wav` ← user-supplied complete replacement (41.638896s) — current
 - `door6-angel-part3.m4a` ← `الملاك السادس (الجزء الثالث)3_mixdown.wav` (3.000000s) — canonical
 - `door7-angel-part1.m4a` ← `الملاك السابع (الجزء الاول)_mixdown.wav` (18.585229s) — canonical
-- `door7-angel-part2.m4a` ← `الملاك السابع (الجزء التاني)_mixdown.wav` (18.600583s) — canonical
+- `door7-angel-part2-new-2026-09-04.m4a` ← user-supplied replacement (10.679002s) — current
 - `door7-angel-part3.m4a` ← `الملاك السابع (الجزء الثالث)_mixdown.wav` (18.627479s) — canonical
 - `door7-angel-part4.m4a` ← `الملاك السابع (الجزء الرابع)_mixdown.wav` (5.951375s) — canonical
 - `door7-angel-part2-alternate-10.68s.m4a` ← `الملاك السابع ( الحزء التاني)_mixdown.wav` (10.679146s) — alternate
@@ -52,10 +52,10 @@ Approved script: scuola biblica copione (4)(1).docx
 - script.ts L369: audioSrc: ["/audio/doors/girl-part09.m4a"],
 - script.ts L378: audioSrc: ["/audio/doors/door6-angel-part1.m4a"],
 - script.ts L386: audioSrc: ["/audio/doors/girl-part10.m4a"],
-- script.ts L396: audioSrc: ["/audio/doors/door6-angel-part2.m4a", "/audio/doors/door6-angel-part3.m4a"],
+- script.ts: Door 6 closing dialogue now uses ["/audio/doors/door6-angel-part2-complete.wav"].
 - script.ts L428: audioSrc: ["/audio/doors/girl-part11.m4a"],
 - script.ts L461: audioSrc: ["/audio/doors/door7-angel-part1.m4a"],
-- script.ts L476: audioSrc: ["/audio/doors/door7-angel-part2.m4a"],
+- script.ts: Door 7 closing dialogue now uses ["/audio/doors/door7-angel-part2-new-2026-09-04.m4a"].
 - script.ts L486: audioSrc: ["/audio/doors/door7-angel-part3.m4a"],
 - script.ts L500: audioSrc: ["/audio/doors/door7-angel-part4.m4a"],
 
@@ -63,3 +63,7 @@ Approved script: scuola biblica copione (4)(1).docx
 - Audio references: 33
 - Missing references: 0
 - M4A decode errors: 0
+
+## 2026-09-04 Recording Replacements
+- Door 6 second angel closing recording was replaced with `door6-angel-part2-complete.wav` (41.638896s), using the complete recording supplied on 2026-09-04.
+- Door 7 second angel closing recording was replaced with `door7-angel-part2-new-2026-09-04.m4a` (10.678141s), using the new recording supplied on 2026-09-04.

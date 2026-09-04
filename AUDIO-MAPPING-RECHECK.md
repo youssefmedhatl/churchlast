@@ -19,8 +19,8 @@ The 11 numbered `الشخصيه الراءسيه` recordings map chronologically
 
 ## Angel recordings
 - Door 5: `door5-angel-part2.m4a`, `door5-angel-part3.m4a`
-- Door 6: `door6-angel-part1.m4a`, `door6-angel-part2.m4a`, `door6-angel-part3.m4a`
-- Door 7: `door7-angel-part1.m4a`, `door7-angel-part2.m4a`, `door7-angel-part3.m4a`, `door7-angel-part4.m4a`
+- Door 6: `door6-angel-part1.m4a`, `door6-angel-part2-complete.wav`, `door6-angel-part3-new.wav`
+- Door 7: `door7-angel-part1.m4a`, `door7-angel-part2-new-2026-09-04.m4a`, `door7-angel-part3.m4a`, `door7-angel-part4.m4a`
 - Door 7 also contained a second, shorter recording with the filename typo “الحزء التاني”; it is preserved as `door7-angel-part2-alt-short.m4a` but is NOT chained into the script as an extra spoken line because the approved script contains only one corresponding part-2 dialogue turn.
 
 ## Critical correction

@@ -390,7 +390,7 @@ const trumpet6: TrumpetScript = {
       // (previously split into five short turns).
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السادس", "The Sixth Angel"),
-      audioSrc: ["/audio/doors/door6-angel-part2.m4a"],
+      audioSrc: ["/audio/doors/door6-angel-part2-complete.wav"],
       text: {
         ar:
           "جلوس الفرسان علي الخيول علامة استعداد تام للحرب , ودروع نارية اشارة بأنها حرب حارقة بلا رحمة واسمانجونية دي شكل الدروع اللي هتبقى قريبة لشكل دروع سماوية " +
@@ -455,7 +455,7 @@ const trumpet7: TrumpetScript = {
     {
       speaker: "angel",
       speakerLabel: angelLabel("الملاك السابع", "The Seventh Angel"),
-      audioSrc: ["/audio/doors/door7-angel-part2.m4a"],
+      audioSrc: ["/audio/doors/door7-angel-part2-new-2026-09-04.m4a"],
       text: {
         ar: "ده اعلان النصرة علي مملكة الشيطان واعلان ملك الله ولما اتقالت الايه دي الاربعة وعشرين قسيس الجالسين امام الله علي وشوشهم وسجدا وقالوا",
         en: "This is the announcement of victory over the kingdom of the devil, and the announcement of God's reign. And when this verse was spoken, the twenty-four elders seated before God fell on their faces and worshiped, saying —",

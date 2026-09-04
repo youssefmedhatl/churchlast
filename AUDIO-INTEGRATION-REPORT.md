@@ -23,7 +23,7 @@ The source archive contains 31 WAV entries: 21 unique recordings and 10 exact du
 | `door5-angel-part2.m4a` | الملاك الخامس (الجزء التاني) | Door 5 — “دنتي مذاكرة…” |
 | `door5-angel-part3.m4a` | الملاك الخامس (الجزء الثالث) | Door 5 — closing explanation |
 | `door6-angel-part1.m4a` | الملاك السادس (الجزء الاول) | Door 6 — first angel reply |
-| `door6-angel-part2.m4a` | الملاك السادس (الجزء التاني) | Door 6 — second angel reply, first segment |
+| `door6-angel-part2-complete.wav` | الملاك السادس (الجزء التاني) | Door 6 — complete replacement recording supplied 2026-09-04 |
 | `door6-angel-part3.m4a` | الملاك السادس (الجزء الثالث) | Door 6 — second angel reply, continuation |
 | `door7-angel-part1.m4a` | الملاك السابع (الجزء الاول) | Door 7 — introduction |
 | `door7-angel-part2-short.m4a` | الملاك السابع (الحزء التاني) | Door 7 — victory/kingdom announcement |
@@ -46,3 +46,7 @@ The `- Copy.wav` files in the transfer archive are byte-for-byte duplicates of t
 
 ## Build limitation
 A fresh Vite production build could not be executed in this isolated environment because the project dependencies are not present locally and the environment cannot reach the npm registry. The project itself was not rewritten around this limitation; the source-level and media-level checks above were completed.
+
+## 2026-09-04 Update
+- Door 6 closing dialogue now uses `door6-angel-part2-complete.wav` (complete replacement recording).
+- Door 7 closing dialogue now uses `door7-angel-part2-new-2026-09-04.m4a` (replacement recording).
